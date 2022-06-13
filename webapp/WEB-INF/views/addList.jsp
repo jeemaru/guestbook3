@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -30,26 +31,23 @@
 	<br>
 	<br>
 
-
-	<%
-	for (int i = 0; i < guestList.size(); i++) {
-	%>
-	<table border="1">
-		<tr>
-			<td><%=guestList.get(i).getNo()%></td>
-			<td><%=guestList.get(i).getName()%></td>
-			<td><%=guestList.get(i).getRegDate()%></td>
-			<td><a
-				href="/guestbook2/gcr?action=deleteForm&no=<%=guestList.get(i).getNo()%>">삭제</a></td>
-		</tr>
-		<tr>
-			<td colspan="4"><%=guestList.get(i).getContent()%></td>
-		</tr>
-	</table>
-	<br>
-	<br>
-	<%
-	}
-	%>
-</body>
+		<form>
+		
+		<table border="1" width="500">
+			<c:forEach items="${guestList }" var="guestVo" varStatus="status">
+				<tr>
+					<td>${guestVo.no}</td>
+					<td>${guestVo.name}</td>
+					<td>${guestVo.regDate}</td>
+					<td><a href="/guestbook3/deleteForm/${guestVo.no }">삭제</a></td>
+				</tr>
+				<tr>
+					<td colspan=4>"${guestVo.content}"</td>
+				</tr>
+			</c:forEach>
+			<br>
+			
+			
+		</form>
+	</body>
 </html>

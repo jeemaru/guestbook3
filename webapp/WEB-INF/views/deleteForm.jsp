@@ -10,12 +10,12 @@
 </head>
 <body>
 
-	<form action="./gcr?" method="get">
-	비밀번호 <input type="password" name="password" value=""> <button type="submit">확인</button><br>
-	<input type="hidden" name="no" value="<%=no%>">
-	<a href="/guestbook2/gcr?action=addList">메인으로 돌아가기</a>
-	<input type="hidden" name="action" value="delete">
+	<form action="/guestbook3/delete" method = "post">
+	<input type = "hidden" name ="no" value =${guestBookVo.no }><br>
+	비밀번호<input type ="password" name = "password" value = "">
+	<button type = "submit">확인</button>
 	</form>
+	<a href = "/guestbook3/addList">메인으로 돌아가기</a>
 	
 </body>
 </html>
